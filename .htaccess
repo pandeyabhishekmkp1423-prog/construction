@@ -1,0 +1,93 @@
+# ==============================================================================
+# Construction Company Website - Apache Configuration (.htaccess)
+# ==============================================================================
+
+# Disable directory browsing
+Options -Indexes
+
+# Set default character set
+AddDefaultCharset UTF-8
+
+# Custom Error Pages
+ErrorDocument 404 /404.php
+
+# ------------------------------------------------------------------------------
+# 1. Security Headers
+# ------------------------------------------------------------------------------
+<IfModule mod_headers.c>
+    # Prevent MIME type sniffing
+    Header set X-Content-Type-Options "nosniff"
+
+    # Prevent clickjacking
+    Header set X-Frame-Options "SAMEORIGIN"
+
+    # Strict Referrer policy
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Restrict unneeded browser hardware APIs
+    Header set Permissions-Policy "geolocation=(), camera=(), microphone=(), payment=()"
+
+    # Content Security Policy (restrict all resources to self, allow data: for SVGs/inline assets)
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; form-action 'self'; frame-ancestors 'self';"
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 2. Block Direct Access to Sensitive Files & Folders
+# ------------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Block access to hidden/dot files and directories (.git, .env, .htaccess, etc.)
+    RewriteRule (^\.|/\.) - [F]
+
+    # Block direct browser access to protected PHP directories and log files
+    RewriteRule ^(config|includes|storage)/ - [F,L]
+    RewriteRule \.(log|jsonl|ini|sql|bak|dist)$ - [F,L]
+
+    # --------------------------------------------------------------------------
+    # Optional: Force HTTPS (Uncomment below once domain SSL is active)
+    # --------------------------------------------------------------------------
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # --------------------------------------------------------------------------
+    # 3. Clean URLs (e.g. /about -> about.php)
+    # --------------------------------------------------------------------------
+    # Canonical 301 redirect: direct browser requests for *.php to clean URLs
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+([^.]+)\.php[\s?] [NC]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^([a-zA-Z0-9_-]+)\.php$ $1 [R=301,L,QSA]
+
+    # Clean URL routing: internally rewrite /page to /page.php
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^([a-zA-Z0-9_-]+)/?$ $1.php [L,QSA]
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 4. Static Asset Caching
+# ------------------------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+
+    # Images and SVGs
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+
+    # Stylesheets and Scripts
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# Prevent caching for dynamic PHP pages
+<FilesMatch "\.php$">
+    <IfModule mod_headers.c>
+        Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+        Header set Pragma "no-cache"
+    </IfModule>
+</FilesMatch>
+

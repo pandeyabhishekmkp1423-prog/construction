@@ -1,0 +1,13 @@
+# Private configuration and credentials
+.env
+.env.*
+!.env.example
+
+# Runtime data and logs
+/storage/*.json
+/storage/*.jsonl
+/storage/*.log
+
+# Local development files
+.DS_Store
+Thumbs.db

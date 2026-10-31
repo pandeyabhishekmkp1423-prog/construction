@@ -1,0 +1,16 @@
+# Pavaki Infra - Search Engine Directives
+# Pre-launch Safeguard: Disallow all crawlers while site_live is false
+User-agent: *
+Disallow: /
+
+# ------------------------------------------------------------------------------
+# LAUNCH DIRECTIVES (Enable when site_live => true):
+# User-agent: *
+# Allow: /
+# Disallow: /config/
+# Disallow: /includes/
+# Disallow: /storage/
+# Disallow: /404.php
+#
+# Sitemap: https://pavakiinfra.com/sitemap.xml
+# ------------------------------------------------------------------------------

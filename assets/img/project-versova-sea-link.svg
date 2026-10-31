@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" fill="none">
+  <!-- Sea / Sky Marine Environment -->
+  <rect width="800" height="500" fill="#1C2126"/>
+  <rect x="0" y="340" width="800" height="160" fill="#14181C"/>
+  <line x1="0" y1="340" x2="800" y2="340" stroke="#374151" stroke-width="2"/>
+
+  <!-- Technical Drawing Grid & Waterline -->
+  <defs>
+    <pattern id="marineGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#262D35" stroke-width="0.75"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="500" fill="url(#marineGrid)"/>
+
+  <!-- Deep Sea Concrete Piles / Substructure -->
+  <g stroke="#4B5563" stroke-width="2" fill="#1F242A">
+    <rect x="360" y="340" width="16" height="120"/>
+    <rect x="424" y="340" width="16" height="120"/>
+    <!-- Pile Cap at Waterline -->
+    <polygon points="340,320 460,320 450,340 350,340" fill="#2D343E" stroke="#6B7280"/>
+  </g>
+
+  <!-- Massive Cable-Stayed Tower Pylon (Twin Legs) -->
+  <g fill="#2D343E" stroke="#9CA3AF" stroke-width="2.5">
+    <!-- Left Leg -->
+    <polygon points="370,320 390,320 398,80 390,80"/>
+    <!-- Right Leg -->
+    <polygon points="410,320 430,320 410,80 402,80"/>
+    <!-- Top Strut Crossbeam -->
+    <rect x="394" y="140" width="12" height="14" fill="#3D4653"/>
+    <rect x="388" y="220" width="24" height="16" fill="#3D4653"/>
+  </g>
+
+  <!-- Roadway Deck (Suspended Box Girder) -->
+  <g stroke="#E88500" stroke-width="3" fill="#1F242A">
+    <line x1="40" y1="260" x2="760" y2="260" stroke="#FFFFFF" stroke-width="3"/>
+    <polygon points="40,260 760,260 750,280 50,280" fill="#242B33"/>
+    <line x1="40" y1="254" x2="760" y2="254" stroke="#6B7280" stroke-width="2"/>
+  </g>
+
+  <!-- Stay Cables (Saffron Technical Line Accent) -->
+  <g stroke="#E88500" stroke-width="1.25" opacity="0.9">
+    <line x1="400" y1="100" x2="160" y2="260"/>
+    <line x1="400" y1="120" x2="220" y2="260"/>
+    <line x1="400" y1="140" x2="280" y2="260"/>
+    <line x1="400" y1="160" x2="340" y2="260"/>
+    <line x1="400" y1="100" x2="640" y2="260"/>
+    <line x1="400" y1="120" x2="580" y2="260"/>
+    <line x1="400" y1="140" x2="520" y2="260"/>
+    <line x1="400" y1="160" x2="460" y2="260"/>
+  </g>
+
+  <!-- Technical Engineering Title Block Overlay -->
+  <rect x="30" y="30" width="360" height="64" fill="#131619" stroke="#374151" stroke-width="1"/>
+  <text x="45" y="52" fill="#E88500" font-family="ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="0.1em">INFRASTRUCTURE CASE STUDY • MUMBAI</text>
+  <text x="45" y="74" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700">Versova-Bandra Sea Link (With APCO Infratech)</text>
+  <text x="45" y="86" fill="#8C96A2" font-family="ui-monospace, monospace" font-size="9">SCOPE: CRITICAL MARINE CIVIL WORKS &amp; PILING</text>
+</svg>
+

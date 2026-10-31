@@ -1,0 +1,8 @@
+<?php
+/**
+ * Clean URL Forwarder for /services
+ */
+declare(strict_types=1);
+
+require_once __DIR__ . '/../services.php';
+
