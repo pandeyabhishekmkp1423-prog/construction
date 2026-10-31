@@ -7,7 +7,9 @@
 
 declare(strict_types=1);
 
-define('APP_INIT', true);
+if (!defined('APP_INIT')) {
+    define('APP_INIT', true);
+}
 require_once __DIR__ . '/includes/helpers.php';
 
 http_response_code(404);

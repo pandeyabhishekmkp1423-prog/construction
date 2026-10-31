@@ -126,6 +126,12 @@ function get_base_path(): string
     $scriptDir = dirname($_SERVER['SCRIPT_NAME'] ?? '');
     $scriptDir = str_replace('\\', '/', $scriptDir);
     $basePath = ($scriptDir === '/' || $scriptDir === '.') ? '' : rtrim($scriptDir, '/');
+
+    // Never prefix asset or route URLs with /api in serverless function environments
+    if ($basePath === '/api') {
+        $basePath = '';
+    }
+
     return $basePath;
 }
 
@@ -326,6 +332,40 @@ function get_client_ip(): string
         return $ip;
     }
     return '127.0.0.1';
+}
+
+/**
+ * Detect whether the application is running in a Vercel serverless environment.
+ */
+function is_vercel(): bool
+{
+    return !empty($_ENV['VERCEL'])
+        || !empty($_SERVER['VERCEL'])
+        || getenv('VERCEL') === '1'
+        || !empty($_ENV['NOW_REGION'])
+        || !empty($_SERVER['NOW_REGION']);
+}
+
+/**
+ * Resolve a writable storage path for logs, rate limits, and submissions.
+ * On traditional servers (Apache, Hostinger, Local), uses root /storage.
+ * On Vercel / serverless read-only environments, falls back to /tmp/pavaki_storage.
+ */
+function get_writable_storage_path(string $filename): string
+{
+    $cleanFilename = basename($filename);
+    $defaultDir = dirname(__DIR__) . '/storage';
+
+    // If running in Vercel or default storage directory is not writable, fallback to /tmp
+    if (is_vercel() || !is_dir($defaultDir) || !is_writable($defaultDir)) {
+        $tmpDir = sys_get_temp_dir() . '/pavaki_storage';
+        if (!is_dir($tmpDir)) {
+            @mkdir($tmpDir, 0777, true);
+        }
+        return $tmpDir . '/' . $cleanFilename;
+    }
+
+    return $defaultDir . '/' . $cleanFilename;
 }
 
 /**

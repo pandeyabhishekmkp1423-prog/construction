@@ -11,3 +11,11 @@
 # Local development files
 .DS_Store
 Thumbs.db
+
+# Vercel & Deployment artifacts
+.vercel
+*.zip
+
+# Vercel & Deployment artifacts
+.vercel
+*.zip

@@ -8,12 +8,22 @@
 
 declare(strict_types=1);
 
+// Detect Vercel serverless environment or read-only filesystem
+$isVercelEnv = !empty($_ENV['VERCEL']) || !empty($_SERVER['VERCEL']) || getenv('VERCEL') === '1' || !empty($_ENV['NOW_REGION']) || !empty($_SERVER['NOW_REGION']);
+$storageDir = ($isVercelEnv || !is_dir(__DIR__ . '/../storage') || !is_writable(__DIR__ . '/../storage'))
+    ? sys_get_temp_dir() . '/pavaki_storage'
+    : __DIR__ . '/../storage';
+
+if (!is_dir($storageDir)) {
+    @mkdir($storageDir, 0777, true);
+}
+
 // Error reporting: Log errors to protected file, never display raw traces publicly
 ini_set('display_errors', '0');
 ini_set('display_startup_errors', '0');
 error_reporting(E_ALL);
 ini_set('log_errors', '1');
-ini_set('error_log', __DIR__ . '/../storage/error.log');
+ini_set('error_log', $storageDir . '/error.log');
 
 if (!defined('APP_INIT')) {
     define('APP_INIT', true);
@@ -549,7 +559,7 @@ return [
         'smtp_pass'        => '',
         'smtp_secure'      => '',
         'log_to_storage'   => true,
-        'storage_file'     => __DIR__ . '/../storage/submissions.jsonl',
+        'storage_file'     => $storageDir . '/submissions.jsonl',
     ],
 
     /**
@@ -559,6 +569,6 @@ return [
         'min_form_time_seconds'    => 3,
         'max_form_time_seconds'    => 7200,
         'max_submissions_per_hour' => 5,
-        'rate_limit_file'          => __DIR__ . '/../storage/rate_limits.json',
+        'rate_limit_file'          => $storageDir . '/rate_limits.json',
     ],
 ];
