@@ -260,229 +260,380 @@ require __DIR__ . '/includes/header.php';
     </div>
 </section>
 
-<!-- 3. Major Projects (Dark Charcoal, 3 Columns: Info+Thumbs, SVG Map, Interactive List) -->
+<!-- 3. Major Projects (Dark Charcoal, 2-Column Enhanced Spotlight Showcase) -->
 <section class="section section-major-projects" id="projects-section" aria-labelledby="major-projects-heading">
     <div class="container">
-        <div class="projects-titan-layout">
-            
-            <!-- Left Column: Heading, Subtitle, Amber CTA, 3 Project Thumbnails -->
-            <div class="projects-col-left">
+        
+        <!-- Section Header: Title, Description, and Action Button -->
+        <div class="projects-showcase-header">
+            <div class="projects-header-left">
                 <span class="eyebrow-dash">— OUR WORK</span>
                 <h2 id="major-projects-heading">
                     MAJOR <span class="text-amber">PROJECTS</span>
                 </h2>
                 <p class="projects-intro-text">
-                    Delivering impactful civil engineering packages across expressways, sea links, and institutional landmarks nationwide.
+                    Delivering impactful civil engineering packages across expressways, sea links, marine foundations, and institutional landmarks nationwide.
                 </p>
-
-                <div>
-                    <a href="<?= e(url('projects')); ?>" class="btn btn-amber">
-                        <span>EXPLORE ALL PROJECTS &rarr;</span>
-                    </a>
-                </div>
-
-                <!-- 3 Project Thumbnail Cards -->
-                <div class="projects-thumbs-row">
-                    <!-- Thumb 1: Versova Sea Link -->
-                    <a href="<?= e(url('projects')); ?>#versova" class="proj-thumb-card" data-project="versova-sea-link">
-                        <img src="<?= e(asset('assets/img/project-versova.jpg')); ?>" 
-                             alt="Versova-Bandra Sea Link Marine Foundations" 
-                             class="proj-thumb-img" 
-                             loading="lazy" 
-                             width="320" 
-                             height="240">
-                        <div class="proj-thumb-overlay">
-                            <span class="proj-thumb-title">VERSOVA SEA LINK</span>
-                            <span class="proj-thumb-loc">
-                                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-                                <span>Mumbai, MH</span>
-                            </span>
-                        </div>
-                    </a>
-
-                    <!-- Thumb 2: Samruddhi Mahamarg -->
-                    <a href="<?= e(url('projects')); ?>#samruddhi" class="proj-thumb-card" data-project="samruddhi-mahamarg">
-                        <img src="<?= e(asset('assets/img/project-samruddhi.jpg')); ?>" 
-                             alt="Samruddhi Mahamarg Super Expressway" 
-                             class="proj-thumb-img" 
-                             loading="lazy" 
-                             width="320" 
-                             height="240">
-                        <div class="proj-thumb-overlay">
-                            <span class="proj-thumb-title">SAMRUDDHI EXPWY</span>
-                            <span class="proj-thumb-loc">
-                                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-                                <span>Maharashtra</span>
-                            </span>
-                        </div>
-                    </a>
-
-                    <!-- Thumb 3: Atal Sanskritik Sankul -->
-                    <a href="<?= e(url('projects')); ?>#atal-sankul" class="proj-thumb-card" data-project="atal-sankul">
-                        <img src="<?= e(asset('assets/img/project-agra-sanskritik.jpg')); ?>" 
-                             alt="Atal Bihari Sanskritik Sankul Agra" 
-                             class="proj-thumb-img" 
-                             loading="lazy" 
-                             width="320" 
-                             height="240">
-                        <div class="proj-thumb-overlay">
-                            <span class="proj-thumb-title">ATAL SANKUL</span>
-                            <span class="proj-thumb-loc">
-                                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-                                <span>Agra, UP</span>
-                            </span>
-                        </div>
-                    </a>
-                </div>
             </div>
-
-            <!-- Center Column: India Silhouette Map with Glowing Amber Pins -->
-            <div class="projects-col-center">
-                <div class="india-map-container" aria-label="Interactive Map of Pavaki Infra Projects Across India">
-                    <svg viewBox="0 0 520 600" class="india-map-svg" role="img">
-                        <!-- High-contrast dark stylized architectural silhouette of India -->
-                        <path class="map-land-path" d="
-                            M 195,58 
-                            C 205,38 220,24 235,22 
-                            C 250,20 262,35 272,48 
-                            C 280,60 286,75 284,92 
-                            C 282,108 274,118 286,132 
-                            C 298,144 322,148 338,142 
-                            C 354,136 362,148 375,152 
-                            C 390,156 408,148 424,152 
-                            C 440,156 452,170 460,185 
-                            C 468,202 462,216 448,222 
-                            C 432,228 415,220 400,230 
-                            C 388,238 382,252 368,258 
-                            C 354,264 345,255 334,265 
-                            C 328,272 332,284 326,295 
-                            C 318,310 305,325 298,342 
-                            C 290,362 295,385 285,405 
-                            C 275,425 260,450 248,475 
-                            C 238,498 228,525 218,548 
-                            C 214,558 206,560 202,548 
-                            C 192,520 180,488 168,458 
-                            C 155,425 142,392 135,360 
-                            C 128,335 125,320 115,302 
-                            C 105,285 85,290 74,275 
-                            C 65,262 76,248 90,245 
-                            C 104,242 115,232 102,222 
-                            C 86,212 62,216 52,200 
-                            C 44,185 58,172 75,168 
-                            C 95,164 118,158 132,142 
-                            C 148,124 155,102 168,80 
-                            C 178,64 186,60 195,58 Z" />
-                        
-                        <!-- Map Grid Lines / Lat-Long Accents -->
-                        <path d="M 60,205 Q 260,225 450,205" fill="none" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4,4" />
-                        <path d="M 100,325 Q 240,345 315,325" fill="none" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4,4" />
-                        <path d="M 140,430 Q 220,445 280,430" fill="none" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4,4" />
-                        <path d="M 235,30 Q 235,280 215,545" fill="none" stroke="rgba(255,255,255,0.04)" stroke-dasharray="4,4" />
-                        
-                        <!-- Pin 1: Mumbai (Versova-Bandra Sea Link) -->
-                        <g class="map-pin" data-project="versova-sea-link" transform="translate(138, 355)">
-                            <circle class="map-pin-pulse" cx="0" cy="0" r="10" fill="var(--color-amber)" />
-                            <circle class="map-pin-core" cx="0" cy="0" r="5" fill="var(--color-amber)" stroke="#1B1E23" stroke-width="1.5" />
-                        </g>
-
-                        <!-- Pin 2: Maharashtra Corridor (Samruddhi Mahamarg) -->
-                        <g class="map-pin" data-project="samruddhi-mahamarg" transform="translate(195, 336)">
-                            <circle class="map-pin-pulse" cx="0" cy="0" r="10" fill="var(--color-amber)" />
-                            <circle class="map-pin-core" cx="0" cy="0" r="5" fill="var(--color-amber)" stroke="#1B1E23" stroke-width="1.5" />
-                        </g>
-
-                        <!-- Pin 3: Agra (Atal Sanskritik Sankul) -->
-                        <g class="map-pin" data-project="atal-sankul" transform="translate(225, 215)">
-                            <circle class="map-pin-pulse" cx="0" cy="0" r="10" fill="var(--color-amber)" />
-                            <circle class="map-pin-core" cx="0" cy="0" r="5" fill="var(--color-amber)" stroke="#1B1E23" stroke-width="1.5" />
-                        </g>
-
-                        <!-- Pin 4: Ayodhya (Ayodhya Shodh Sansthan) -->
-                        <g class="map-pin" data-project="ayodhya-shodh" transform="translate(288, 222)">
-                            <circle class="map-pin-pulse" cx="0" cy="0" r="10" fill="var(--color-amber)" />
-                            <circle class="map-pin-core" cx="0" cy="0" r="5" fill="var(--color-amber)" stroke="#1B1E23" stroke-width="1.5" />
-                        </g>
-
-                        <!-- Pin 5: Varanasi (Solar Park Infra) -->
-                        <g class="map-pin" data-project="varanasi-solar" transform="translate(302, 244)">
-                            <circle class="map-pin-pulse" cx="0" cy="0" r="10" fill="var(--color-amber)" />
-                            <circle class="map-pin-core" cx="0" cy="0" r="5" fill="var(--color-amber)" stroke="#1B1E23" stroke-width="1.5" />
-                        </g>
-
-                        <!-- Pin 6: Lucknow (Corporate Registered Office) -->
-                        <g class="map-pin" data-project="lucknow-hq" transform="translate(265, 218)">
-                            <circle class="map-pin-pulse" cx="0" cy="0" r="10" fill="var(--color-amber)" />
-                            <circle class="map-pin-core" cx="0" cy="0" r="5" fill="var(--color-amber)" stroke="#1B1E23" stroke-width="1.5" />
-                        </g>
-                    </svg>
-                </div>
-            </div>
-
-            <!-- Right Column: Vertical Project List with Circular Icons -->
-            <div class="projects-col-right">
-                <ul class="project-list-titan" role="list">
-                    
-                    <!-- Item 1: Versova Sea Link -->
-                    <li class="project-item-titan" data-project="versova-sea-link" tabindex="0">
-                        <div class="project-item-icon" aria-hidden="true">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12"/><path d="M2 19h20"/><path d="M12 5v14"/><path d="M4 11h16"/></svg>
-                        </div>
-                        <div class="project-item-text">
-                            <span class="project-item-title">VERSOVA-BANDRA SEA LINK</span>
-                            <span class="project-item-loc">Mumbai, Maharashtra</span>
-                        </div>
-                    </li>
-
-                    <!-- Item 2: Samruddhi Mahamarg -->
-                    <li class="project-item-titan" data-project="samruddhi-mahamarg" tabindex="0">
-                        <div class="project-item-icon" aria-hidden="true">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19 8 5"/><path d="m16 5 4 14"/><path d="M12 5v14"/></svg>
-                        </div>
-                        <div class="project-item-text">
-                            <span class="project-item-title">SAMRUDDHI MAHAMARG EXPRESSWAY</span>
-                            <span class="project-item-loc">Maharashtra Corridor</span>
-                        </div>
-                    </li>
-
-                    <!-- Item 3: Atal Sanskritik Sankul -->
-                    <li class="project-item-titan" data-project="atal-sankul" tabindex="0">
-                        <div class="project-item-icon" aria-hidden="true">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="18" x="3" y="3" rx="1"/><rect width="8" height="12" x="13" y="9" rx="1"/></svg>
-                        </div>
-                        <div class="project-item-text">
-                            <span class="project-item-title">ATAL BIHARI VAJPAYEE SANKUL</span>
-                            <span class="project-item-loc">Agra, Uttar Pradesh</span>
-                        </div>
-                    </li>
-
-                    <!-- Item 4: Ayodhya Shodh Sansthan -->
-                    <li class="project-item-titan" data-project="ayodhya-shodh" tabindex="0">
-                        <div class="project-item-icon" aria-hidden="true">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V12a7 7 0 0 1 14 0v9"/></svg>
-                        </div>
-                        <div class="project-item-text">
-                            <span class="project-item-title">AYODHYA SHODH SANSTHAN COMPLEX</span>
-                            <span class="project-item-loc">Ayodhya, Uttar Pradesh</span>
-                        </div>
-                    </li>
-
-                    <!-- Item 5: Varanasi Solar Park -->
-                    <li class="project-item-titan" data-project="varanasi-solar" tabindex="0">
-                        <div class="project-item-icon" aria-hidden="true">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/></svg>
-                        </div>
-                        <div class="project-item-text">
-                            <span class="project-item-title">VARANASI SOLAR PARK INFRA</span>
-                            <span class="project-item-loc">Varanasi, Uttar Pradesh</span>
-                        </div>
-                    </li>
-
-                </ul>
-
-                <a href="<?= e(url('projects')); ?>" class="and-many-more-link">
-                    <span>And many more...</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <div class="projects-header-right">
+                <a href="<?= e(url('projects')); ?>" class="btn btn-amber">
+                    <span>EXPLORE ALL PROJECTS &rarr;</span>
                 </a>
+            </div>
+        </div>
+
+        <!-- 2-Column Enhanced Showcase Grid -->
+        <div class="projects-showcase-grid">
+            
+            <!-- Left Column: Featured Cinematic Spotlight Panel -->
+            <div class="projects-spotlight-col">
+                <div class="projects-spotlight-stage" id="projects-spotlight-stage">
+                    
+                    <!-- Panel 1: Versova-Bandra Sea Link -->
+                    <article class="proj-spotlight-panel is-active" id="spotlight-versova-sea-link" data-project-id="versova-sea-link" role="tabpanel" aria-labelledby="tab-versova-sea-link">
+                        <div class="proj-spotlight-img-wrap">
+                            <img src="<?= e(asset('assets/img/project-versova.jpg')); ?>" 
+                                 alt="Versova-Bandra Sea Link Marine Foundations" 
+                                 class="proj-spotlight-img" 
+                                 loading="eager" 
+                                 width="820" 
+                                 height="520">
+                            <div class="proj-spotlight-scrim"></div>
+                        </div>
+                        <div class="proj-spotlight-badges">
+                            <span class="spotlight-badge badge-cat">Marine &amp; Bridges</span>
+                            <span class="spotlight-badge badge-assoc">APCO Infratech Partnership</span>
+                        </div>
+                        <div class="proj-spotlight-content">
+                            <div class="proj-spotlight-loc">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                                <span>Mumbai, Maharashtra</span>
+                            </div>
+                            <h3 class="proj-spotlight-title">VERSOVA-BANDRA SEA LINK PROJECT</h3>
+                            <p class="proj-spotlight-scope">
+                                Deep marine foundation works, piling in open sea conditions, reinforcement cages, and bridge approach civil structures for Mumbai’s landmark coastal corridor.
+                            </p>
+                            <div class="proj-spotlight-actions">
+                                <a href="<?= e(url('projects')); ?>#versova" class="btn-spotlight-detail">
+                                    <span>VIEW PROJECT SCOPE</span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                </a>
+                                <span class="proj-spotlight-index">01 / 05</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Panel 2: Samruddhi Mahamarg Expressway -->
+                    <article class="proj-spotlight-panel" id="spotlight-samruddhi-mahamarg" data-project-id="samruddhi-mahamarg" role="tabpanel" aria-labelledby="tab-samruddhi-mahamarg">
+                        <div class="proj-spotlight-img-wrap">
+                            <img src="<?= e(asset('assets/img/project-samruddhi.jpg')); ?>" 
+                                 alt="Samruddhi Mahamarg Super Expressway Slope Protection" 
+                                 class="proj-spotlight-img" 
+                                 loading="lazy" 
+                                 width="820" 
+                                 height="520">
+                            <div class="proj-spotlight-scrim"></div>
+                        </div>
+                        <div class="proj-spotlight-badges">
+                            <span class="spotlight-badge badge-cat">Highways &amp; Civils</span>
+                            <span class="spotlight-badge badge-assoc">MSRDC Corridor Package</span>
+                        </div>
+                        <div class="proj-spotlight-content">
+                            <div class="proj-spotlight-loc">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                                <span>Maharashtra Corridor</span>
+                            </div>
+                            <h3 class="proj-spotlight-title">SAMRUDDHI MAHAMARG HIGHWAY PROTECTION</h3>
+                            <p class="proj-spotlight-scope">
+                                Hillside cut-slope stabilization, reinforced soil walls, rockfall protection netting, and highway perimeter civil structures along India’s 701 km expressway.
+                            </p>
+                            <div class="proj-spotlight-actions">
+                                <a href="<?= e(url('projects')); ?>#samruddhi" class="btn-spotlight-detail">
+                                    <span>VIEW PROJECT SCOPE</span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                </a>
+                                <span class="proj-spotlight-index">02 / 05</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Panel 3: Atal Bihari Vajpayee Sanskritik Sankul -->
+                    <article class="proj-spotlight-panel" id="spotlight-atal-sankul" data-project-id="atal-sankul" role="tabpanel" aria-labelledby="tab-atal-sankul">
+                        <div class="proj-spotlight-img-wrap">
+                            <img src="<?= e(asset('assets/img/project-agra-sanskritik.jpg')); ?>" 
+                                 alt="Shri Atal Bihari Vajpayee Sanskritik Sankul Agra" 
+                                 class="proj-spotlight-img" 
+                                 loading="lazy" 
+                                 width="820" 
+                                 height="520">
+                            <div class="proj-spotlight-scrim"></div>
+                        </div>
+                        <div class="proj-spotlight-badges">
+                            <span class="spotlight-badge badge-cat">Institutional Buildings</span>
+                            <span class="spotlight-badge badge-assoc">Inaugurated by CM Yogi Adityanath</span>
+                        </div>
+                        <div class="proj-spotlight-content">
+                            <div class="proj-spotlight-loc">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                                <span>Agra, Uttar Pradesh</span>
+                            </div>
+                            <h3 class="proj-spotlight-title">SHRI ATAL BIHARI VAJPAYEE SANKUL</h3>
+                            <p class="proj-spotlight-scope">
+                                RCC superstructure framework, high-span roof trusses, internal acoustic drywalling, and civic auditorium civil construction in Agra.
+                            </p>
+                            <div class="proj-spotlight-actions">
+                                <a href="<?= e(url('projects')); ?>#atal-sankul" class="btn-spotlight-detail">
+                                    <span>VIEW PROJECT SCOPE</span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                </a>
+                                <span class="proj-spotlight-index">03 / 05</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Panel 4: Ayodhya Shodh Sansthan Facility -->
+                    <article class="proj-spotlight-panel" id="spotlight-ayodhya-shodh" data-project-id="ayodhya-shodh" role="tabpanel" aria-labelledby="tab-ayodhya-shodh">
+                        <div class="proj-spotlight-img-wrap">
+                            <img src="<?= e(asset('assets/img/project-ayodhya.jpg')); ?>" 
+                                 alt="Ayodhya Shodh Sansthan Archival Facility" 
+                                 class="proj-spotlight-img" 
+                                 loading="lazy" 
+                                 width="820" 
+                                 height="520">
+                            <div class="proj-spotlight-scrim"></div>
+                        </div>
+                        <div class="proj-spotlight-badges">
+                            <span class="spotlight-badge badge-cat">Heritage &amp; Civic</span>
+                            <span class="spotlight-badge badge-assoc">Visited by President of India</span>
+                        </div>
+                        <div class="proj-spotlight-content">
+                            <div class="proj-spotlight-loc">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                                <span>Ayodhya, Uttar Pradesh</span>
+                            </div>
+                            <h3 class="proj-spotlight-title">AYODHYA SHODH SANSTHAN COMPLEX</h3>
+                            <p class="proj-spotlight-scope">
+                                Reinforced concrete structural framework, heritage stone cladding civil details, research wing partitions, and institutional archival storage facilities.
+                            </p>
+                            <div class="proj-spotlight-actions">
+                                <a href="<?= e(url('projects')); ?>#ayodhya-shodh" class="btn-spotlight-detail">
+                                    <span>VIEW PROJECT SCOPE</span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                </a>
+                                <span class="proj-spotlight-index">04 / 05</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Panel 5: Varanasi Solar Park -->
+                    <article class="proj-spotlight-panel" id="spotlight-varanasi-solar" data-project-id="varanasi-solar" role="tabpanel" aria-labelledby="tab-varanasi-solar">
+                        <div class="proj-spotlight-img-wrap">
+                            <img src="<?= e(asset('assets/img/project-varanasi-solar.jpg')); ?>" 
+                                 alt="Varanasi Grid Solar Power Infrastructure" 
+                                 class="proj-spotlight-img" 
+                                 loading="lazy" 
+                                 width="820" 
+                                 height="520">
+                            <div class="proj-spotlight-scrim"></div>
+                        </div>
+                        <div class="proj-spotlight-badges">
+                            <span class="spotlight-badge badge-cat">Energy &amp; Utilities</span>
+                            <span class="spotlight-badge badge-assoc">Inaugurated by PM Narendra Modi</span>
+                        </div>
+                        <div class="proj-spotlight-content">
+                            <div class="proj-spotlight-loc">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                                <span>Varanasi, Uttar Pradesh</span>
+                            </div>
+                            <h3 class="proj-spotlight-title">VARANASI SOLAR PARK INFRASTRUCTURE</h3>
+                            <p class="proj-spotlight-scope">
+                                Turnkey array pile foundations, module mounting structural erection, inverter civil buildings, and heavy stormwater drainage networks.
+                            </p>
+                            <div class="proj-spotlight-actions">
+                                <a href="<?= e(url('projects')); ?>#varanasi-solar" class="btn-spotlight-detail">
+                                    <span>VIEW PROJECT SCOPE</span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                </a>
+                                <span class="proj-spotlight-index">05 / 05</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- Quick Preview Thumbnails Strip -->
+                <div class="projects-thumbs-strip" aria-label="Project Preview Navigation">
+                    <button type="button" class="proj-strip-btn is-active" data-project-id="versova-sea-link" aria-label="Show Versova-Bandra Sea Link">
+                        <img src="<?= e(asset('assets/img/project-versova.jpg')); ?>" alt="" class="proj-strip-img" width="120" height="75" loading="lazy">
+                        <span class="proj-strip-label">VERSOVA SEA LINK</span>
+                    </button>
+                    <button type="button" class="proj-strip-btn" data-project-id="samruddhi-mahamarg" aria-label="Show Samruddhi Mahamarg Expressway">
+                        <img src="<?= e(asset('assets/img/project-samruddhi.jpg')); ?>" alt="" class="proj-strip-img" width="120" height="75" loading="lazy">
+                        <span class="proj-strip-label">SAMRUDDHI EXPWY</span>
+                    </button>
+                    <button type="button" class="proj-strip-btn" data-project-id="atal-sankul" aria-label="Show Atal Bihari Vajpayee Sankul">
+                        <img src="<?= e(asset('assets/img/project-agra-sanskritik.jpg')); ?>" alt="" class="proj-strip-img" width="120" height="75" loading="lazy">
+                        <span class="proj-strip-label">ATAL SANKUL</span>
+                    </button>
+                    <button type="button" class="proj-strip-btn" data-project-id="ayodhya-shodh" aria-label="Show Ayodhya Shodh Sansthan">
+                        <img src="<?= e(asset('assets/img/project-ayodhya.jpg')); ?>" alt="" class="proj-strip-img" width="120" height="75" loading="lazy">
+                        <span class="proj-strip-label">AYODHYA SHODH</span>
+                    </button>
+                    <button type="button" class="proj-strip-btn" data-project-id="varanasi-solar" aria-label="Show Varanasi Solar Park">
+                        <img src="<?= e(asset('assets/img/project-varanasi-solar.jpg')); ?>" alt="" class="proj-strip-img" width="120" height="75" loading="lazy">
+                        <span class="proj-strip-label">VARANASI SOLAR</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Column: Interactive Projects Directory List -->
+            <div class="projects-directory-col">
+                <div class="projects-directory-list" role="tablist" aria-label="Landmark Infrastructure Directory">
+                    
+                    <!-- Card 1: Versova Sea Link -->
+                    <div class="directory-card is-active" 
+                         role="tab" 
+                         id="tab-versova-sea-link" 
+                         data-project-id="versova-sea-link" 
+                         aria-selected="true" 
+                         aria-controls="spotlight-versova-sea-link" 
+                         tabindex="0">
+                        <div class="directory-card-icon" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12"/><path d="M2 19h20"/><path d="M12 5v14"/><path d="M4 11h16"/></svg>
+                        </div>
+                        <div class="directory-card-text">
+                            <span class="directory-card-title">VERSOVA-BANDRA SEA LINK</span>
+                            <div class="directory-card-meta">
+                                <span class="directory-card-loc">
+                                    <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                                    <span>Mumbai, Maharashtra</span>
+                                </span>
+                                <span class="directory-card-sep">&bull;</span>
+                                <span class="directory-card-cat">Marine &amp; Bridges</span>
+                            </div>
+                        </div>
+                        <div class="directory-card-arrow" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Samruddhi Mahamarg -->
+                    <div class="directory-card" 
+                         role="tab" 
+                         id="tab-samruddhi-mahamarg" 
+                         data-project-id="samruddhi-mahamarg" 
+                         aria-selected="false" 
+                         aria-controls="spotlight-samruddhi-mahamarg" 
+                         tabindex="0">
+                        <div class="directory-card-icon" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19 8 5"/><path d="m16 5 4 14"/><path d="M12 5v14"/></svg>
+                        </div>
+                        <div class="directory-card-text">
+                            <span class="directory-card-title">SAMRUDDHI MAHAMARG EXPRESSWAY</span>
+                            <div class="directory-card-meta">
+                                <span class="directory-card-loc">
+                                    <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                                    <span>Maharashtra Corridor</span>
+                                </span>
+                                <span class="directory-card-sep">&bull;</span>
+                                <span class="directory-card-cat">Highways &amp; Civils</span>
+                            </div>
+                        </div>
+                        <div class="directory-card-arrow" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Atal Sanskritik Sankul -->
+                    <div class="directory-card" 
+                         role="tab" 
+                         id="tab-atal-sankul" 
+                         data-project-id="atal-sankul" 
+                         aria-selected="false" 
+                         aria-controls="spotlight-atal-sankul" 
+                         tabindex="0">
+                        <div class="directory-card-icon" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="18" x="3" y="3" rx="1"/><rect width="8" height="12" x="13" y="9" rx="1"/></svg>
+                        </div>
+                        <div class="directory-card-text">
+                            <span class="directory-card-title">ATAL BIHARI VAJPAYEE SANKUL</span>
+                            <div class="directory-card-meta">
+                                <span class="directory-card-loc">
+                                    <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                                    <span>Agra, Uttar Pradesh</span>
+                                </span>
+                                <span class="directory-card-sep">&bull;</span>
+                                <span class="directory-card-cat">Institutional</span>
+                            </div>
+                        </div>
+                        <div class="directory-card-arrow" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Ayodhya Shodh Sansthan -->
+                    <div class="directory-card" 
+                         role="tab" 
+                         id="tab-ayodhya-shodh" 
+                         data-project-id="ayodhya-shodh" 
+                         aria-selected="false" 
+                         aria-controls="spotlight-ayodhya-shodh" 
+                         tabindex="0">
+                        <div class="directory-card-icon" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V12a7 7 0 0 1 14 0v9"/></svg>
+                        </div>
+                        <div class="directory-card-text">
+                            <span class="directory-card-title">AYODHYA SHODH SANSTHAN COMPLEX</span>
+                            <div class="directory-card-meta">
+                                <span class="directory-card-loc">
+                                    <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                                    <span>Ayodhya, Uttar Pradesh</span>
+                                </span>
+                                <span class="directory-card-sep">&bull;</span>
+                                <span class="directory-card-cat">Heritage &amp; Civic</span>
+                            </div>
+                        </div>
+                        <div class="directory-card-arrow" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Varanasi Solar Park -->
+                    <div class="directory-card" 
+                         role="tab" 
+                         id="tab-varanasi-solar" 
+                         data-project-id="varanasi-solar" 
+                         aria-selected="false" 
+                         aria-controls="spotlight-varanasi-solar" 
+                         tabindex="0">
+                        <div class="directory-card-icon" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/></svg>
+                        </div>
+                        <div class="directory-card-text">
+                            <span class="directory-card-title">VARANASI SOLAR PARK INFRA</span>
+                            <div class="directory-card-meta">
+                                <span class="directory-card-loc">
+                                    <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                                    <span>Varanasi, Uttar Pradesh</span>
+                                </span>
+                                <span class="directory-card-sep">&bull;</span>
+                                <span class="directory-card-cat">Energy &amp; Utilities</span>
+                            </div>
+                        </div>
+                        <div class="directory-card-arrow" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Footer Link inside Directory Column -->
+                <div class="projects-directory-footer">
+                    <a href="<?= e(url('projects')); ?>" class="and-many-more-link">
+                        <span>EXPLORE ALL 45+ COMPLETED INFRASTRUCTURE PROJECTS</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
             </div>
 
         </div>
