@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
     initMobileDrawer();
     initHeroSlider();
-    initMapPinInteraction();
+    initMajorProjectsShowcase();
     initTestimonialSlider();
     initStatsCountUp();
     initScrollAnimations();
@@ -288,55 +288,106 @@ function initHeroSlider() {
 }
 
 /**
- * 4. Interactive India Map Pins & Projects List Linkage
+ * 4. Interactive Major Projects Showcase (Spotlight & Directory Synchronization)
  */
-function initMapPinInteraction() {
-    const mapPins = document.querySelectorAll('.map-pin');
-    const projectItems = document.querySelectorAll('.project-item-titan, .proj-thumb-card');
+function initMajorProjectsShowcase() {
+    const panels = document.querySelectorAll('.proj-spotlight-panel');
+    const cards = document.querySelectorAll('.directory-card');
+    const stripBtns = document.querySelectorAll('.proj-strip-btn');
 
-    if (!mapPins.length || !projectItems.length) return;
+    if (!panels.length || !cards.length) return;
 
-    function activateProject(projKey) {
-        mapPins.forEach((pin) => {
-            if (pin.getAttribute('data-project') === projKey) {
-                pin.classList.add('is-active');
+    let currentIndex = 0;
+    const projectIds = Array.from(cards).map(card => card.getAttribute('data-project-id'));
+    let autoRotateTimer = null;
+
+    function activateProject(projectId) {
+        if (!projectId) return;
+
+        // Activate matching spotlight panel with crossfade
+        panels.forEach(panel => {
+            const match = panel.getAttribute('data-project-id') === projectId;
+            panel.classList.toggle('is-active', match);
+            if (match) {
+                panel.setAttribute('aria-hidden', 'false');
             } else {
-                pin.classList.remove('is-active');
+                panel.setAttribute('aria-hidden', 'true');
             }
         });
 
-        projectItems.forEach((item) => {
-            if (item.getAttribute('data-project') === projKey) {
-                item.classList.add('is-active');
-            } else {
-                item.classList.remove('is-active');
+        // Activate matching directory card
+        cards.forEach(card => {
+            const match = card.getAttribute('data-project-id') === projectId;
+            card.classList.toggle('is-active', match);
+            card.setAttribute('aria-selected', match ? 'true' : 'false');
+        });
+
+        // Activate matching thumb strip button
+        stripBtns.forEach(btn => {
+            const match = btn.getAttribute('data-project-id') === projectId;
+            btn.classList.toggle('is-active', match);
+        });
+
+        // Update currentIndex
+        const idx = projectIds.indexOf(projectId);
+        if (idx !== -1) {
+            currentIndex = idx;
+        }
+    }
+
+    // Bind click and hover on directory cards
+    cards.forEach(card => {
+        const pId = card.getAttribute('data-project-id');
+        card.addEventListener('click', () => {
+            stopAutoRotate();
+            activateProject(pId);
+        });
+        card.addEventListener('mouseenter', () => {
+            stopAutoRotate();
+            activateProject(pId);
+        });
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                stopAutoRotate();
+                activateProject(pId);
             }
         });
-    }
-
-    function resetProjectHighlight() {
-        mapPins.forEach((pin) => pin.classList.remove('is-active'));
-        projectItems.forEach((item) => item.classList.remove('is-active'));
-    }
-
-    projectItems.forEach((item) => {
-        const key = item.getAttribute('data-project');
-        if (!key) return;
-
-        item.addEventListener('mouseenter', () => activateProject(key));
-        item.addEventListener('focus', () => activateProject(key));
-        item.addEventListener('mouseleave', resetProjectHighlight);
-        item.addEventListener('blur', resetProjectHighlight);
     });
 
-    mapPins.forEach((pin) => {
-        const key = pin.getAttribute('data-project');
-        if (!key) return;
-
-        pin.addEventListener('mouseenter', () => activateProject(key));
-        pin.addEventListener('mouseleave', resetProjectHighlight);
-        pin.addEventListener('click', () => activateProject(key));
+    // Bind click on thumb strip buttons
+    stripBtns.forEach(btn => {
+        const pId = btn.getAttribute('data-project-id');
+        btn.addEventListener('click', () => {
+            stopAutoRotate();
+            activateProject(pId);
+        });
     });
+
+    // Auto rotate every 6 seconds if user is not actively interacting
+    function startAutoRotate() {
+        if (autoRotateTimer) clearInterval(autoRotateTimer);
+        autoRotateTimer = setInterval(() => {
+            currentIndex = (currentIndex + 1) % projectIds.length;
+            activateProject(projectIds[currentIndex]);
+        }, 6000);
+    }
+
+    function stopAutoRotate() {
+        if (autoRotateTimer) {
+            clearInterval(autoRotateTimer);
+            autoRotateTimer = null;
+        }
+    }
+
+    const showcaseContainer = document.getElementById('projects-section');
+    if (showcaseContainer) {
+        showcaseContainer.addEventListener('mouseenter', stopAutoRotate);
+        showcaseContainer.addEventListener('mouseleave', startAutoRotate);
+        showcaseContainer.addEventListener('touchstart', stopAutoRotate, { passive: true });
+    }
+
+    startAutoRotate();
 }
 
 /**
